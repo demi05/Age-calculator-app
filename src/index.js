@@ -1,6 +1,6 @@
+// INITIALIZE VARIABLES
 let userInputDay=document.getElementById("user-input-day")
 let userInputMonth=document.getElementById("user-input-month")
-// console.log(userInputMonth)
 let userInputYear=document.getElementById("user-input-year")
 let birthDateArray= []
 
@@ -15,23 +15,35 @@ let span1=document.getElementById("span1")
 let span2=document.getElementById("span2")
 let span3=document.getElementById("span3")
 
-function validateAge(){
-    console.log(userInputDay.value)
-    if ((userInputDay.value>31) && (userInputMonth.value>12)) {
-        errorDay.textContent="Invalid number of days"
-        errorMonth.textContent="Invalid number of months"
-    } else if ((userInputDay.value="") && (userInputMonth.value="") && (userInputYear="")) {
+
+btn.addEventListener("click", () => {
+    if (Boolean(userInputDay.value)===false) {
         errorDay.textContent="This field is required"
+    }
+    if (Boolean(userInputMonth.value)===false) {
         errorMonth.textContent="This field is required"
+    }
+    if (Boolean(userInputYear.value)===false) {
         errorYear.textContent="This field is required"
     }
-    else{
-        calculateAge()
-    }
-    
-}
 
-btn.addEventListener("click", function calculateAge(){
+    if (userInputDay.value>31) {
+        errorDay.textContent="Must be a valid day"
+        userInputDay.value=""
+    }
+    if (userInputMonth.value>12) {
+        errorMonth.textContent="Must be a valid month"
+        userInputMonth.value=""
+    }
+    if (userInputYear.value>new Date().getFullYear()) {
+        errorYear.textContent="Must be in the past"
+        userInputYear.value=""
+    }
+
+    if (Boolean(userInputDay.value)===false || Boolean(userInputMonth.value)===false || Boolean(userInputYear.value)===false) {
+        btn.removeEventListener()
+    }
+
     birthDateArray= [userInputMonth.value, userInputDay.value, userInputYear.value]
     console.log(birthDateArray)
 
@@ -58,7 +70,7 @@ btn.addEventListener("click", function calculateAge(){
     console.log(m2)
     let y2=currentDate.getFullYear()
     console.log(y2)
-    
+
     // GET THE DIFFERENCE
     let d3, m3, y3
     y3=y2-y1
@@ -90,9 +102,6 @@ btn.addEventListener("click", function calculateAge(){
     <p><span>${m3}</span> months</p>
     <p><span>${d3}</span> days</p>
     `
-    // userInputDay.value=""
-    // userInputMonth.value=""
-    // userInputYear.value=""
     }
 )
 
