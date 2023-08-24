@@ -14,32 +14,51 @@ const btn=document.getElementById("btn")
 let span1=document.getElementById("span1")
 let span2=document.getElementById("span2")
 let span3=document.getElementById("span3")
-
+const label1=document.getElementById("label1")
+const label2=document.getElementById("label2")
+const label3=document.getElementById("label3")
 
 btn.addEventListener("click", () => {
     if (Boolean(userInputDay.value)===false) {
         errorDay.textContent="This field is required"
+        label1.style.color="hsl(0, 100%, 67%)"
+        userInputDay.style.border="1px solid hsl(0, 100%, 67%)"
     }
     if (Boolean(userInputMonth.value)===false) {
         errorMonth.textContent="This field is required"
+        label2.style.color="hsl(0, 100%, 67%)"
+        userInputMonth.style.border="1px solid hsl(0, 100%, 67%)"
     }
     if (Boolean(userInputYear.value)===false) {
         errorYear.textContent="This field is required"
+        label3.style.color="hsl(0, 100%, 67%)"
+        userInputYear.style.border="1px solid hsl(0, 100%, 67%)"
     }
 
     if (userInputDay.value>31) {
         errorDay.textContent="Must be a valid day"
         userInputDay.value=""
+        label1.style.color="hsl(0, 100%, 67%)"
+        userInputDay.style.border="1px solid hsl(0, 100%, 67%)"
     }
     if (userInputMonth.value>12) {
         errorMonth.textContent="Must be a valid month"
         userInputMonth.value=""
+        label2.style.color="hsl(0, 100%, 67%)"
+        userInputMonth.style.border="1px solid hsl(0, 100%, 67%)"
     }
     if (userInputYear.value>new Date().getFullYear()) {
         errorYear.textContent="Must be in the past"
         userInputYear.value=""
+        label3.style.color="hsl(0, 100%, 67%)"
+        userInputYear.style.border="1px solid hsl(0, 100%, 67%)"
     }
-
+    if ((userInputMonth.value==4) && ((userInputDay.value>28) || (userInputDay.value>29))  ) {
+            errorDay.textContent="Must be a valid day"
+            userInputDay.value=""
+            label1.style.color="hsl(0, 100%, 67%)"
+            userInputDay.style.border="1px solid hsl(0, 100%, 67%)"
+    }
     if (Boolean(userInputDay.value)===false || Boolean(userInputMonth.value)===false || Boolean(userInputYear.value)===false) {
         btn.removeEventListener()
     }
@@ -92,7 +111,7 @@ btn.addEventListener("click", () => {
         m3=11
         y3--
     }
-
+    // DISPLAY THE RESULT
     span1.textContent=y3
     span2.textContent=m3
     span3.textContent=d3
