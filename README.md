@@ -31,9 +31,8 @@ Users should be able to:
 - **Bonus**: See the age numbers animate to their final number when the form is submitted
 
 ### Screenshot
+![127 0 0 1_5500_index html](https://github.com/demi05/Age-calculator-app/assets/98643006/37cdb6b7-c50f-47b1-bcd1-ec9a60236c29)
 
-![![127 0 0 1_5500_index html](https://github.com/demi05/Age-calculator-app/assets/98643006/3384b428-3122-4ced-8c0d-0acbef8cf885)
-](./screenshot.jpg)
 
 ### Links
 
