@@ -32,7 +32,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![![127 0 0 1_5500_index html](https://github.com/demi05/Age-calculator-app/assets/98643006/3384b428-3122-4ced-8c0d-0acbef8cf885)
+](./screenshot.jpg)
 
 ### Links
 
